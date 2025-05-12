@@ -1,0 +1,153 @@
+/* Import Pywal colors */
+@import url("$HOME/.cache/wal/colors-waybar.css"); /* Using waybar colors as a base */
+
+* {
+    font-family: 'Noto Sans', 'Font Awesome 6 Free Solid', FontAwesome, sans-serif; /* Consistent font */
+    font-size: 13px; /* Consistent font size, adjust as needed */
+    border: none; /* Reset borders globally for swaync widgets, then re-apply specifically */
+    border-radius: 0; /* Reset border-radius globally */
+}
+
+.notification-row {
+    background-color: alpha(@background, 0.75); /* Adjusted alpha */
+    color: @foreground;
+    border-radius: 8px; /* Uniform border radius */
+    border: 1px solid alpha(@color1, 0.6); /* Thinner, slightly more transparent border */
+    padding: 12px;
+    margin: 8px;
+}
+
+.notification-row:hover {
+    background-color: alpha(@color2, 0.85);
+    border: 1px solid @color4;
+}
+
+.notification-summary {
+    font-weight: bold;
+    color: @foreground;
+    margin-bottom: 4px;
+}
+
+.notification-body {
+    color: @foreground;
+}
+
+.notification-icon {
+    margin-right: 10px;
+    min-width: 64px; /* Ensure icon space */
+    min-height: 64px;
+}
+
+.notification-action {
+    background-color: @color3;
+    color: @background;
+    border-radius: 5px; /* Consistent button radius */
+    padding: 6px 12px;
+    margin: 5px 2px;
+    font-weight: bold;
+}
+
+.notification-action:hover {
+    background-color: @color5;
+}
+
+.control-center {
+    background-color: alpha(@background, 0.8); /* Adjusted alpha */
+    color: @foreground;
+    border-radius: 8px; /* Uniform border radius */
+    border: 1px solid alpha(@color1, 0.6); /* Thinner border */
+    padding: 15px;
+}
+
+.control-center .widget {
+    margin-bottom: 12px;
+}
+
+.control-center .widget-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: @color4;
+    font-size: 1.1em; /* Slightly larger title */
+}
+
+.control-center .widget-button, .control-center .button {
+    background-color: @color2;
+    color: @background;
+    border-radius: 5px; /* Consistent button radius */
+    padding: 8px 15px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.control-center .widget-button:hover, .control-center .button:hover {
+    background-color: @color5;
+}
+
+.control-center .dnd-button.active {
+    background-color: @color9; /* Often a red or warning color from Pywal */
+    color: @foreground;
+}
+
+.control-center .dnd-button { /* Style for inactive state too */
+    font-weight: bold;
+}
+
+/* Slider styling */
+.slider {
+    -gtk-icon-style: requested;
+    min-height: 22px; /* Slightly taller */
+    min-width: 150px;
+    background-color: transparent;
+    margin: 5px 0;
+}
+
+.slider trough {
+    background-color: alpha(@color8, 0.4); /* More transparent trough */
+    border-radius: 4px; /* Slightly rounded trough */
+    min-height: 8px; /* Trough height */
+}
+
+.slider highlight, .slider progress {
+    background-color: @color4;
+    border-radius: 4px;
+    min-height: 8px;
+}
+
+.slider trough > slider, .slider trough > button, .slider > contents > button {
+    background-color: @color5;
+    border-radius: 4px; /* NOT a circle - makes it a small rounded rectangle */
+    min-width: 10px;     /* Width of the handle */
+    min-height: 20px;    /* Height of the handle, taller than trough */
+    margin: -6px 0px;    /* Vertical centering: (handle_height - trough_height) / 2 */
+    border: 1px solid alpha(@foreground, 0.3);
+    box-shadow: none; /* Remove any default shadow */
+}
+
+.slider trough > slider:hover, .slider trough > button:hover, .slider > contents > button:hover {
+    background-color: @active-background; /* Or another highlight color */
+    border-color: @foreground;
+}
+
+/* Tooltip styling */
+tooltip, tooltip label {
+    background-color: alpha(@background, 0.9);
+    color: @foreground;
+    border: 1px solid @color1;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Close button styling */
+.notification-close-button {
+    background-color: transparent;
+    color: @foreground;
+    border-radius: 100%; /* Make it circular if desired, or use small radius */
+    min-width: 24px;
+    min-height: 24px;
+    padding: 2px;
+}
+
+.notification-close-button:hover {
+    background-color: alpha(@color9, 0.7); /* Reddish hover */
+    color: @background;
+} 

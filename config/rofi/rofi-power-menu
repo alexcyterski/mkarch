@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Rofi Power Menu with icons
+chosen=$(printf "󰐥  Power Off\n󰜉  Restart\n󰤄  Suspend\n󰍁  Lock\n󰿅  Log Out" | rofi -dmenu -i -p "Power Menu" -theme-str 'window {width: 20%;} element {padding: 4 12;} listview {lines: 5;}')
+
+case "$chosen" in
+    "󰐥  Power Off") systemctl poweroff ;;
+    "󰜉  Restart") systemctl reboot ;;
+    "󰤄  Suspend") systemctl suspend ;;
+    "󰍁  Lock") swaylock ;; # Assumes swaylock is installed
+    "󰿅  Log Out") hyprctl dispatch exit "" ;;
+    *) exit 1 ;;
+esac 

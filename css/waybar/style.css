@@ -1,0 +1,205 @@
+@import url("/home/alex/.cache/wal/colors-waybar.css");
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Noto Sans Mono", "Font Awesome 6 Free";
+    font-size: 11px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(@background, 0.85);
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @foreground;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: alpha(@color1, 0.3);
+}
+
+#workspaces button.focused {
+    background: alpha(@color2, 0.3);
+}
+
+#workspaces button.urgent {
+    background-color: alpha(@color1, 0.5);
+}
+
+#mode {
+    background-color: alpha(@color1, 0.5);
+    border-bottom: 3px solid @foreground;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    margin: 0 5px;
+    color: @foreground;
+    background: transparent;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background: transparent;
+}
+
+#battery {
+    background: transparent;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @color2;
+    background: transparent;
+}
+
+@keyframes blink {
+    to {
+        background-color: @foreground;
+        color: @background;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: alpha(@color1, 0.5);
+    color: @foreground;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @background;
+}
+
+#cpu {
+    background: transparent;
+}
+
+#memory {
+    background: transparent;
+}
+
+#backlight {
+    background: transparent;
+}
+
+#network {
+    background: transparent;
+}
+
+#network.disconnected {
+    background-color: alpha(@color1, 0.5);
+}
+
+#pulseaudio {
+    background: transparent;
+}
+
+#pulseaudio.muted {
+    background: transparent;
+}
+
+#temperature {
+    background: transparent;
+}
+
+#temperature.critical {
+    background-color: alpha(@color1, 0.5);
+}
+
+#tray {
+    background: transparent;
+}
+
+#idle_inhibitor {
+    background: transparent;
+}
+
+#mpd {
+    background: transparent;
+}
+
+#mpd.disconnected {
+    background-color: alpha(@color1, 0.5);
+}
+
+#mpd.stopped {
+    background-color: alpha(@color5, 0.5);
+}
+
+#mpd.paused {
+    background-color: alpha(@color5, 0.5);
+}
+
+#language {
+    background: transparent;
+    color: @foreground;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: transparent;
+    color: @foreground;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: alpha(@color1, 0.3);
+}
+
+#custom-power {
+    background: transparent;
+    color: @foreground;
+    padding: 0 10px;
+    margin: 0 5px;
+} 

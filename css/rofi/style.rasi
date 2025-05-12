@@ -1,0 +1,159 @@
+/* Rofi Configuration */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    modi: "drun,run,window,ssh";
+    show-icons: false;
+    icon-theme: "Papirus"; /* Or your preferred icon theme */
+    font: "Noto Sans Mono 10"; /* Adjust font and size */
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+    display-ssh: "SSH";
+    sidebar-mode: true;
+}
+
+window {
+    background-color: @background;
+    border: 2px;
+    border-color: @active-background; /* Was @color1 - using a color defined by typical Wal output */
+    padding: 10px;
+    width: 50%; /* Adjust width as needed */
+}
+
+mainbox {
+    border: 0;
+    padding: 5px;
+}
+
+message {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: @active-background; /* Was @background-alt - using a defined color */
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+listview {
+    fixed-height: 0;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    scrollbar: true;
+    spacing: 5px;
+}
+
+element {
+    border: 0;
+    padding: 5px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element.normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+    border:           0px 0px 2px 0px;
+    border-color:     @foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+
+scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+    handle-color: @active-background; /* Was @color4 */
+}
+
+sidebar {
+    border:       2px solid;
+    border-radius: 5px;
+    background-color: @active-background; /* Was @background-alt */
+    text-color: @foreground;
+}
+
+button {
+    spacing: 0;
+    text-color: @foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+inputbar {
+    spacing:    0;
+    text-color: @foreground;
+    padding:    5px;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+entry {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+prompt {
+    spacing:    0;
+    text-color: @active-background; /* Was @color5 - can also use @foreground if this is too light/dark */
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: inherit;
+} 
