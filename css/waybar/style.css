@@ -40,23 +40,9 @@ window#waybar.hidden {
     background-color: alpha(@color1, 0.5);
 }
 
-#mode {
-    background-color: alpha(@color1, 0.5);
-    border-bottom: 3px solid @foreground;
-}
-
 #clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
 #network,
-#pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd {
+#pulseaudio {
     padding: 0 10px;
     margin: 0 5px;
     color: @foreground;
@@ -82,16 +68,6 @@ window#waybar.hidden {
     background: transparent;
 }
 
-#battery {
-    background: transparent;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: @color2;
-    background: transparent;
-}
-
 @keyframes blink {
     to {
         background-color: @foreground;
@@ -99,30 +75,8 @@ window#waybar.hidden {
     }
 }
 
-#battery.critical:not(.charging) {
-    background-color: alpha(@color1, 0.5);
-    color: @foreground;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 label:focus {
     background-color: @background;
-}
-
-#cpu {
-    background: transparent;
-}
-
-#memory {
-    background: transparent;
-}
-
-#backlight {
-    background: transparent;
 }
 
 #network {
@@ -141,65 +95,18 @@ label:focus {
     background: transparent;
 }
 
-#temperature {
-    background: transparent;
-}
-
-#temperature.critical {
-    background-color: alpha(@color1, 0.5);
-}
-
-#tray {
-    background: transparent;
-}
-
-#idle_inhibitor {
-    background: transparent;
-}
-
-#mpd {
-    background: transparent;
-}
-
-#mpd.disconnected {
-    background-color: alpha(@color1, 0.5);
-}
-
-#mpd.stopped {
-    background-color: alpha(@color5, 0.5);
-}
-
-#mpd.paused {
-    background-color: alpha(@color5, 0.5);
-}
-
-#language {
+#bluetooth {
     background: transparent;
     color: @foreground;
-    padding: 0 5px;
+    font-size: 11px;
+    padding: 0 10px;
     margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: transparent;
-    color: @foreground;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: alpha(@color1, 0.3);
 }
 
 #custom-power {
     background: transparent;
     color: @foreground;
+    font-size: 16px;
     padding: 0 10px;
     margin: 0 5px;
 } 
