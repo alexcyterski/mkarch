@@ -28,6 +28,7 @@ echo_yellow() {
 }
 
 PACKAGES=(
+    "hyprland"                  # Window manager
     "hyprpaper"                 # Wallpaper daemon (Changed from swww)
     "waybar"                    # Status bar
     "swaync"                    # Notification daemon (Corrected from swaynotificationcenter)
@@ -74,15 +75,17 @@ KITTY_DIR="$CONFIG_DIR/kitty" # Changed from ALACRITTY_DIR
 WAYBAR_DIR="$CONFIG_DIR/waybar"
 ROFI_DIR="$CONFIG_DIR/rofi"
 SWAYNC_DIR="$CONFIG_DIR/swaync" # Added swaync directory
+HYPR_DIR="$CONFIG_DIR/hypr"
 CSS_DIR="$(dirname "$0")/css" # Directory containing CSS files
 CONFIG_FILES_DIR="$(dirname "$0")/config" # Directory containing configuration files
 
 create_config_dirs() {
     echo_blue "\\n[*] Creating configuration directories..."
-    mkdir -p "$KITTY_DIR" # Changed from ALACRITTY_DIR
+    mkdir -p "$KITTY_DIR"
     mkdir -p "$WAYBAR_DIR"
     mkdir -p "$ROFI_DIR"
-    mkdir -p "$SWAYNC_DIR" # Added swaync directory
+    mkdir -p "$SWAYNC_DIR"
+    mkdir -p "$HYPR_DIR"
     echo_green "[+] Configuration directories ensured."
 }
 
@@ -175,6 +178,27 @@ configure_swaync() {
     echo_yellow "[i] For a cleaner blur effect, ensure Hyprland is configured to blur swaync windows. Check comments in $swaync_style_file for example Hyprland settings."
 }
 
+configure_hypr() {
+    echo_blue "\\n[*] Configuring Hyprland..."
+    local hyprland_config_file="$HYPR_DIR/hyprland.conf"
+    local hyprpaper_config_file="$HYPR_DIR/hyprpaper.conf"
+
+    if [ -f "$hyprland_config_file" ]; then
+        echo_yellow "[i] Hyprland config already exists. Backing it up to $hyprland_config_file.bak"
+        cp "$hyprland_config_file" "$hyprland_config_file.bak"
+    fi
+    if [ -f "$hyprpaper_config_file" ]; then
+        echo_yellow "[i] Hyprpaper config already exists. Backing it up to $hyprpaper_config_file.bak"
+        cp "$hyprpaper_config_file" "$hyprpaper_config_file.bak"
+    fi
+
+    # Copy Hyprland config and hyprpaper config from config directory
+    cp "$CONFIG_FILES_DIR/hypr/hyprland.conf" "$hyprland_config_file"
+    cp "$CONFIG_FILES_DIR/hypr/hyprpaper.conf" "$hyprpaper_config_file"
+    echo_green "[+] Hyprland config copied from $CONFIG_FILES_DIR/hypr/hyprland.conf"
+    echo_green "[+] Hyprpaper config copied from $CONFIG_FILES_DIR/hypr/hyprpaper.conf"
+}
+
 # --- Main Execution ---
 install_packages
 create_config_dirs
@@ -182,6 +206,7 @@ configure_kitty # Changed from configure_alacritty
 configure_waybar
 configure_rofi
 configure_swaync # Added swaync configuration
+configure_hypr
 
 echo_blue "\\n--- Installation and Basic Configuration Complete ---"
 echo_green "\\n[+] Next Steps:"
