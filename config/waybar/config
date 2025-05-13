@@ -5,7 +5,7 @@
     "spacing": 4,
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray", "custom/power"],
+    "modules-right": ["pulseaudio", "network", "battery", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -27,7 +27,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%H:%M  %d/%m}",
+        "format": " {:%H:%M   %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
@@ -47,8 +47,7 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-connection-editor"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -57,18 +56,6 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "nm-connection-editor"
-    },
-    "cpu": {
-        "format": "CPU: {usage}% ",
-        "tooltip": true
-    },
-    "memory": {
-        "format": "MEM: {}% "
-    },
-    "temperature": {
-        "thermal-zone": 0,
-        "format": "{temperatureC}°C ",
-        "critical-threshold": 80
     },
     "battery": {
         "states": {
@@ -85,6 +72,6 @@
     "custom/power": {
         "format": "󰐥",
         "on-click": "~/.config/rofi/rofi-power-menu",
-        "font-size": 20
+        "font-size": 24
     }
 } 
