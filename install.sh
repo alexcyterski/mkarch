@@ -43,6 +43,8 @@ PACKAGES=(
     "xdg-desktop-portal-hyprland" # For screen sharing etc.
     "brightnessctl"             # For brightness control modules in waybar
     "pavucontrol"               # For volume control / PipeWire management
+    "wlsunset"                  # For automatic screen color temperature adjustment
+    "wl-clipboard"              # For clipboard support
 )
 
 install_packages() {
