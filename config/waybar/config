@@ -27,7 +27,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%H:%M   %d/%m}",
+        "format": " {:%I:%M   %m/%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
