@@ -14,9 +14,6 @@
             "urgent": "",
             "active": "",
             "default": ""
-        },
-        "persistent-workspaces": {
-            "*": 3
         }
     },
     "hyprland/window": {
