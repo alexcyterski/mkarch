@@ -17,11 +17,12 @@
         }
     },
     "hyprland/window": {
-        "format": " › {}"
+        "format": " › {}",
+        "tooltip": false
     },
     "clock": {
         "format": " {:%I:%M   %m/%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -40,7 +41,8 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": false
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -48,18 +50,18 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-connection-editor"
+        "on-click": "nm-connection-editor",
+        "tooltip": false
     },
     "bluetooth": {
         "format": " {status}",
         "format-connected": " {num_connections} connected",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager"
+        "on-click": "blueman-manager",
+        "tooltip": false
     },
     "custom/power": {
         "format": "󰐥",
-        "on-click": "~/.config/rofi/rofi-power-menu"
+        "on-click": "~/.config/rofi/rofi-power-menu",
+        "tooltip": false
     }
 } 
