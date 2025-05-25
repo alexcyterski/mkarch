@@ -10,64 +10,81 @@
 }
 
 window#waybar {
-    background: alpha(@background, 0.85);
+    background: transparent;
     color: @foreground;
-    transition-property: background-color;
-    transition-duration: .5s;
+    transition: background-color 0.5s ease;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
+/* ============================
+ *   🟢 Pill Style Modules
+ * ============================ */
+#workspaces,
+#clock,
+#network,
+#pulseaudio,
+#bluetooth,
+#custom-power,
+#window {
+background-color: alpha(@background, 0.85);
+color: @foreground;
+padding: 4px 12px;
+margin: 2px 6px;
+border-radius: 20px;
+}
+
+#custom-power {
+font-size: 16px;
+}
+
+/* ============================
+ *   🔳 Workspaces
+ * ============================ */
+#workspaces {
+padding: 2px 4px;
+}
+
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: @foreground;
+background-color: transparent;
+color: @foreground;
+padding: 3px 4px;
+margin: 3px 4px;
+border-radius: 999px;
+min-width: 0;
+min-height: 0;
+box-shadow: none;
+text-shadow: none;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background: alpha(@color1, 0.3);
+background-color: alpha(@color1, 0.4);
 }
 
 #workspaces button.focused {
-    background: alpha(@color2, 0.3);
+background-color: alpha(@color2, 0.6);
 }
 
 #workspaces button.urgent {
-    background-color: alpha(@color1, 0.5);
+background-color: alpha(@color1, 0.7);
 }
 
-#clock,
-#network,
-#pulseaudio {
-    padding: 0 10px;
-    margin: 0 5px;
-    color: @foreground;
-    background: transparent;
+/* ============================
+ *   🚫 Special States
+ * ============================ */
+#network.disconnected {
+background-color: alpha(@color1, 0.7);
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#pulseaudio.muted {
+opacity: 0.6;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-#clock {
-    background: transparent;
-}
-
+/* ============================
+ *   🔁 Animations & Focus
+ * ============================ */
 @keyframes blink {
     to {
         background-color: @foreground;
@@ -76,37 +93,5 @@ window#waybar.hidden {
 }
 
 label:focus {
-    background-color: @background;
+    background-color: alpha(@background, 0.9);
 }
-
-#network {
-    background: transparent;
-}
-
-#network.disconnected {
-    background-color: alpha(@color1, 0.5);
-}
-
-#pulseaudio {
-    background: transparent;
-}
-
-#pulseaudio.muted {
-    background: transparent;
-}
-
-#bluetooth {
-    background: transparent;
-    color: @foreground;
-    font-size: 11px;
-    padding: 0 10px;
-    margin: 0 5px;
-}
-
-#custom-power {
-    background: transparent;
-    color: @foreground;
-    font-size: 16px;
-    padding: 0 10px;
-    margin: 0 5px;
-} 

@@ -17,7 +17,7 @@
         }
     },
     "hyprland/window": {
-        "format": "{}"
+        "format": " › {}"
     },
     "clock": {
         "format": " {:%I:%M   %m/%d}",
