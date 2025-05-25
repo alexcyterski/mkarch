@@ -32,7 +32,9 @@ window#waybar.hidden {
 background-color: alpha(@background, 0.85);
 color: @foreground;
 padding: 4px 12px;
-margin: 2px 6px;
+margin-top: 3px;
+margin-right: 4px;
+margin-left: 4px;
 border-radius: 20px;
 }
 
